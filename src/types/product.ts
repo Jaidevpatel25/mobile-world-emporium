@@ -20,7 +20,7 @@ export interface Product {
   colors?: string[];
 }
 
-export type Brand = 'Apple' | 'Samsung' | 'OnePlus' | 'Xiaomi' | 'Google';
+export type Brand = 'Apple' | 'Samsung' | 'OnePlus' | 'Xiaomi' | 'Google' | 'Motorola';
 
 export interface FilterOptions {
   brands: string[];

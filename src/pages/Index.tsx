@@ -16,6 +16,8 @@ const minPrice = Math.min(...products.map(p => p.price));
 
 export default function Index() {
   const featuredProducts = products.filter(product => product.featured);
+  // Find the Motorola Edge 50 Fusion for new arrival section
+  const newArrivalProduct = products.find(product => product.id === "motorola-edge-50-fusion");
   
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
   const [searchQuery, setSearchQuery] = useState('');
@@ -137,7 +139,7 @@ export default function Index() {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="text-black border-white hover:bg-white/10"
+                    className="border-white hover:bg-white/10"
                     asChild
                   >
                     <Link to="/brands">Shop by Brand</Link>
@@ -160,12 +162,72 @@ export default function Index() {
           </div>
         </section>
         
+        {/* New Arrival Section */}
+        {newArrivalProduct && (
+          <section className="py-12 bg-gradient-to-r from-purple-50 to-blue-50">
+            <div className="container mx-auto px-4">
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                <div className="md:w-1/2">
+                  <h2 className="font-heading text-3xl font-bold mb-2">New Arrival</h2>
+                  <div className="mb-4">
+                    <span className="inline-block bg-purple-100 text-purple-800 font-semibold px-3 py-1 rounded-full text-sm">
+                      Just Launched
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-4">{newArrivalProduct.brand} {newArrivalProduct.name}</h3>
+                  <div className="space-y-3 mb-6">
+                    <p className="text-gray-700">{newArrivalProduct.description}</p>
+                    <div className="flex flex-wrap gap-y-2 gap-x-6">
+                      <div className="flex items-center text-sm text-gray-600">
+                        <span className="font-medium">Display:</span> 
+                        <span className="ml-2">{newArrivalProduct.specs.display}</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-600">
+                        <span className="font-medium">Processor:</span> 
+                        <span className="ml-2">{newArrivalProduct.specs.processor}</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-600">
+                        <span className="font-medium">Camera:</span> 
+                        <span className="ml-2">{newArrivalProduct.specs.camera}</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-600">
+                        <span className="font-medium">Battery:</span> 
+                        <span className="ml-2">{newArrivalProduct.specs.battery}</span>
+                      </div>
+                    </div>
+                    <p className="text-2xl font-bold text-primary-700">
+                      ₹{(newArrivalProduct.price / 100).toLocaleString('en-IN')}
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    <Button asChild>
+                      <Link to={`/product/${newArrivalProduct.id}`}>Shop Now</Link>
+                    </Button>
+                    <Button asChild variant="outline">
+                      <Link to="/brand/motorola">View All Motorola</Link>
+                    </Button>
+                  </div>
+                </div>
+                <div className="md:w-1/2">
+                  <div className="bg-white rounded-lg p-6 shadow-lg">
+                    <img 
+                      src={newArrivalProduct.image} 
+                      alt={`${newArrivalProduct.brand} ${newArrivalProduct.name}`} 
+                      className="w-full h-auto object-cover rounded"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+        
         {/* Brand Quick Filters */}
         <section className="py-8 bg-gray-50">
           <div className="container mx-auto px-4">
             <h2 className="font-heading text-2xl font-semibold mb-6 text-center">Popular Brands</h2>
             <div className="flex flex-nowrap overflow-x-auto gap-4 pb-4 md:flex-wrap md:justify-center">
-              {['Apple', 'Samsung', 'Google', 'OnePlus', 'Xiaomi'].map(brand => (
+              {['Apple', 'Samsung', 'Google', 'OnePlus', 'Xiaomi', 'Motorola'].map(brand => (
                 <Link
                   key={brand}
                   to={`/brand/${getBrandSlug(brand)}`}

@@ -99,6 +99,25 @@ export const products: Product[] = [
     colors: ["Titanium Black", "White"]
   },
   {
+    id: "motorola-edge-50-fusion",
+    name: "Edge 50 Fusion",
+    brand: "Motorola",
+    price: 24999,
+    image: "https://images.unsplash.com/photo-1550367083-9fa5411cb303?q=80&w=1974&auto=format&fit=crop",
+    specs: {
+      ram: "8GB",
+      storage: "128GB",
+      camera: "50MP + 13MP Dual Camera",
+      display: "6.7-inch pOLED 144Hz",
+      processor: "Snapdragon 7s Gen 2",
+      battery: "5000mAh"
+    },
+    inStock: true,
+    featured: true,
+    description: "The Motorola Edge 50 Fusion features a stunning 6.7-inch pOLED display with 1B colors, powerful Snapdragon 7s Gen 2 processor, and a 50MP OIS camera system.",
+    colors: ["Marshmallow Blue", "Silicone Matte"]
+  },
+  {
     id: "iphone-15",
     name: "iPhone 15",
     brand: "Apple",
@@ -188,5 +207,23 @@ export const products: Product[] = [
     inStock: true,
     description: "The Xiaomi 13T Pro features Leica optics, incredibly fast 120W charging, and a beautiful AMOLED display with Dolby Vision support.",
     colors: ["Alpine Blue", "Meadow Green", "Black"]
+  },
+  {
+    id: "motorola-edge-50-fusion-256",
+    name: "Edge 50 Fusion",
+    brand: "Motorola",
+    price: 27999,
+    image: "https://images.unsplash.com/photo-1550367083-9fa5411cb303?q=80&w=1974&auto=format&fit=crop",
+    specs: {
+      ram: "12GB",
+      storage: "256GB",
+      camera: "50MP + 13MP Dual Camera",
+      display: "6.7-inch pOLED 144Hz",
+      processor: "Snapdragon 7s Gen 2",
+      battery: "5000mAh"
+    },
+    inStock: true,
+    description: "The Motorola Edge 50 Fusion features a stunning 6.7-inch pOLED display with 1B colors, powerful Snapdragon 7s Gen 2 processor, and a 50MP OIS camera system.",
+    colors: ["Marshmallow Blue", "Silicone Matte"]
   }
 ];

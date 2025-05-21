@@ -55,6 +55,13 @@ export default function BrandsPage() {
       description: 'Discover Google Pixel phones with exceptional cameras, pure Android experience, and intelligent features.',
       count: brandCounts['Google'] || 0,
     },
+    {
+      name: 'Motorola',
+      slug: 'motorola',
+      logo: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1935&auto=format&fit=crop',
+      description: 'Explore Motorola\'s innovative Edge series with clean Android experience, stunning displays, and long-lasting batteries.',
+      count: brandCounts['Motorola'] || 0,
+    }
   ];
   
   return (

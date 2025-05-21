@@ -26,6 +26,7 @@ export default function BrandPage() {
       'oneplus': 'OnePlus',
       'xiaomi': 'Xiaomi',
       'google': 'Google',
+      'motorola': 'Motorola',
     };
     
     return brandMap[brandId.toLowerCase()] || brandId;
@@ -80,9 +81,24 @@ export default function BrandPage() {
       'OnePlus': 'https://images.unsplash.com/photo-1678911820864-e2c567c655d7?q=80&w=2064&auto=format&fit=crop',
       'Xiaomi': 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?q=80&w=2027&auto=format&fit=crop',
       'Google': 'https://images.unsplash.com/photo-1699439098260-f797a2c41371?q=80&w=2071&auto=format&fit=crop',
+      'Motorola': 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1935&auto=format&fit=crop',
     };
     
     return brandImages[brandName] || 'https://images.unsplash.com/photo-1616077168712-fc6141808ba7?q=80&w=2070&auto=format&fit=crop';
+  };
+  
+  // Get brand tagline
+  const getBrandTagline = () => {
+    const brandTaglines: Record<string, string> = {
+      'Apple': 'Think Different',
+      'Samsung': 'Do What You Can\'t',
+      'OnePlus': 'Never Settle',
+      'Xiaomi': 'Innovation for Everyone',
+      'Google': 'Made By Google',
+      'Motorola': 'Innovation that moves you',
+    };
+    
+    return brandTaglines[brandName] || '';
   };
   
   return (
@@ -104,6 +120,8 @@ export default function BrandPage() {
               {brandName} Smartphones
             </h1>
             <p className="text-lg text-white/90 max-w-2xl">
+              {getBrandTagline()}
+              {getBrandTagline() && <br />}
               Discover our full range of {brandName} smartphones with the latest features and technology.
             </p>
           </div>
