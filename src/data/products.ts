@@ -102,7 +102,7 @@ export const products: Product[] = [
     id: "motorola-edge-50-fusion",
     name: "Edge 50 Fusion",
     brand: "Motorola",
-    price: 25000.00,
+    price: 25,000.00,
     image: "https://motorolain.vtexassets.com/arquivos/ids/159186/2024_CUSCO-PLUS_FOREST-GREEN_PDP-HERO.png?v=638618115763230000",
     specs: {
       ram: "12GB",
