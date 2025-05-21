@@ -24,7 +24,7 @@ export const products: Product[] = [
   {
     id: "Motorola Edge 50 Fusion",
     name: "Motorola Edge 50 Fusion",
-    brand: "Motorola",
+    brand: "Samsung",
     price: 25,000,
     image: "https://motorolain.vtexassets.com/arquivos/ids/159186/2024_CUSCO-PLUS_FOREST-GREEN_PDP-HERO.png?v=638618115763230000",
     specs: {
