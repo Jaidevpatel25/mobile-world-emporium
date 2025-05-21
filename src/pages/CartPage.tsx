@@ -5,8 +5,21 @@ import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
 import { useCart } from '@/context/CartContext';
 import { Button } from '@/components/ui/button';
-import { Minus, Plus, ShoppingCart, Trash2, ShoppingBag } from 'lucide-react';
+import { Minus, Plus, ShoppingCart, Trash2, ShoppingBag, IndianRupee } from 'lucide-react';
 import { products } from '@/data/products';
+
+// Function to format price in Indian Rupees format
+const formatIndianPrice = (price: number) => {
+  // Convert to Indian format (e.g., 1,23,456)
+  const priceString = price.toString();
+  const lastThree = priceString.substring(priceString.length - 3);
+  const otherNumbers = priceString.substring(0, priceString.length - 3);
+  const formattedPrice = otherNumbers !== '' 
+    ? otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + ',' + lastThree 
+    : lastThree;
+  
+  return `₹${formattedPrice}`;
+};
 
 export default function CartPage() {
   const { cartItems, removeFromCart, updateQuantity, getCartTotal } = useCart();
@@ -37,6 +50,11 @@ export default function CartPage() {
       </div>
     );
   }
+  
+  // Calculate tax amount (8% for example)
+  const taxAmount = getCartTotal() * 0.08;
+  // Grand total
+  const grandTotal = getCartTotal() + taxAmount;
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -76,7 +94,9 @@ export default function CartPage() {
                           </div>
                           
                           <div className="mt-2 sm:mt-0">
-                            <span className="font-heading font-bold text-lg">${item.price}</span>
+                            <span className="font-heading font-bold text-lg flex items-center">
+                              <IndianRupee className="h-4 w-4 mr-1" /> {formatIndianPrice(item.price).substring(1)}
+                            </span>
                           </div>
                         </div>
                         
@@ -98,8 +118,8 @@ export default function CartPage() {
                           </div>
                           
                           <div className="flex items-center mt-4 sm:mt-0">
-                            <span className="font-heading font-bold text-lg mr-4">
-                              ${(item.price * item.quantity).toFixed(2)}
+                            <span className="font-heading font-bold text-lg mr-4 flex items-center">
+                              <IndianRupee className="h-4 w-4 mr-1" /> {formatIndianPrice(item.price * item.quantity).substring(1)}
                             </span>
                             <button 
                               onClick={() => removeFromCart(item.id)}
@@ -126,22 +146,26 @@ export default function CartPage() {
                 <div className="space-y-4 mb-6">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Subtotal</span>
-                    <span className="font-medium">${getCartTotal().toFixed(2)}</span>
+                    <span className="font-medium flex items-center">
+                      <IndianRupee className="h-4 w-4 mr-1" /> {formatIndianPrice(getCartTotal()).substring(1)}
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Shipping</span>
                     <span className="font-medium">Free</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Tax</span>
-                    <span className="font-medium">${(getCartTotal() * 0.08).toFixed(2)}</span>
+                    <span className="text-gray-600">GST (18%)</span>
+                    <span className="font-medium flex items-center">
+                      <IndianRupee className="h-4 w-4 mr-1" /> {formatIndianPrice(taxAmount).substring(1)}
+                    </span>
                   </div>
                   
                   <div className="border-t pt-4">
                     <div className="flex justify-between items-center">
                       <span className="font-heading font-semibold text-lg">Total</span>
-                      <span className="font-heading font-bold text-xl">
-                        ${(getCartTotal() * 1.08).toFixed(2)}
+                      <span className="font-heading font-bold text-xl flex items-center">
+                        <IndianRupee className="h-4 w-4 mr-1" /> {formatIndianPrice(grandTotal).substring(1)}
                       </span>
                     </div>
                   </div>
@@ -154,7 +178,7 @@ export default function CartPage() {
                 </Button>
                 
                 <div className="mt-4 text-center">
-                  <Link to="/" className="text-sm text-primary-700 hover:underline">
+                  <Link to="/phones" className="text-sm text-primary-700 hover:underline">
                     Continue Shopping
                   </Link>
                 </div>
@@ -185,7 +209,9 @@ export default function CartPage() {
                     </Link>
                     <p className="text-sm text-gray-500 mb-2">{product.brand}</p>
                     <div className="flex items-baseline justify-between">
-                      <span className="font-heading text-lg font-bold">${product.price}</span>
+                      <span className="font-heading text-lg font-bold flex items-center">
+                        <IndianRupee className="h-4 w-4 mr-1" /> {formatIndianPrice(product.price).substring(1)}
+                      </span>
                       <Button 
                         variant="outline" 
                         size="sm" 

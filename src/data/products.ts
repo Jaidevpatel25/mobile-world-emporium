@@ -6,7 +6,7 @@ export const products: Product[] = [
     id: "iphone-15-pro-max",
     name: "iPhone 15 Pro Max",
     brand: "Apple",
-    price: 1199,
+    price: 159900,
     image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=2070&auto=format&fit=crop",
     specs: {
       ram: "8GB",
@@ -25,8 +25,8 @@ export const products: Product[] = [
     id: "samsung-galaxy-s23-ultra",
     name: "Galaxy S23 Ultra",
     brand: "Samsung",
-    price: 1199,
-    oldPrice: 1299,
+    price: 124999,
+    oldPrice: 134999,
     image: "https://images.unsplash.com/photo-1678911820864-e2c567c655d7?q=80&w=2064&auto=format&fit=crop",
     specs: {
       ram: "12GB",
@@ -45,7 +45,7 @@ export const products: Product[] = [
     id: "google-pixel-8-pro",
     name: "Pixel 8 Pro",
     brand: "Google",
-    price: 999,
+    price: 106999,
     image: "https://images.unsplash.com/photo-1699439098260-f797a2c41371?q=80&w=2071&auto=format&fit=crop",
     specs: {
       ram: "12GB",
@@ -64,7 +64,7 @@ export const products: Product[] = [
     id: "oneplus-12",
     name: "OnePlus 12",
     brand: "OnePlus",
-    price: 899,
+    price: 64999,
     image: "https://images.unsplash.com/photo-1676911809746-9f4316589126?q=80&w=2021&auto=format&fit=crop",
     specs: {
       ram: "16GB",
@@ -83,7 +83,7 @@ export const products: Product[] = [
     id: "xiaomi-14-ultra",
     name: "Xiaomi 14 Ultra",
     brand: "Xiaomi",
-    price: 1099,
+    price: 99999,
     image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?q=80&w=2027&auto=format&fit=crop",
     specs: {
       ram: "16GB",
@@ -102,7 +102,7 @@ export const products: Product[] = [
     id: "iphone-15",
     name: "iPhone 15",
     brand: "Apple",
-    price: 799,
+    price: 79900,
     image: "https://images.unsplash.com/photo-1696428262254-0cf1499cfb25?q=80&w=1964&auto=format&fit=crop",
     specs: {
       ram: "6GB",
@@ -120,7 +120,7 @@ export const products: Product[] = [
     id: "samsung-galaxy-s23-plus",
     name: "Galaxy S23+",
     brand: "Samsung",
-    price: 999,
+    price: 94999,
     image: "https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?q=80&w=2071&auto=format&fit=crop",
     specs: {
       ram: "8GB",
@@ -138,7 +138,7 @@ export const products: Product[] = [
     id: "google-pixel-8",
     name: "Pixel 8",
     brand: "Google",
-    price: 699,
+    price: 75999,
     image: "https://images.unsplash.com/photo-1701722969576-fd0c8d9dfa96?q=80&w=1935&auto=format&fit=crop",
     specs: {
       ram: "8GB",
@@ -156,8 +156,8 @@ export const products: Product[] = [
     id: "oneplus-11",
     name: "OnePlus 11",
     brand: "OnePlus",
-    price: 699,
-    oldPrice: 799,
+    price: 56999,
+    oldPrice: 61999,
     image: "https://images.unsplash.com/photo-1679641051408-b963d15f4f5a?q=80&w=1935&auto=format&fit=crop",
     specs: {
       ram: "12GB",
@@ -175,7 +175,7 @@ export const products: Product[] = [
     id: "xiaomi-13t-pro",
     name: "Xiaomi 13T Pro",
     brand: "Xiaomi",
-    price: 799,
+    price: 49999,
     image: "https://images.unsplash.com/photo-1550367083-9fa5411cb303?q=80&w=1974&auto=format&fit=crop",
     specs: {
       ram: "12GB",

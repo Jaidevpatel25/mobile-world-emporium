@@ -4,12 +4,25 @@ import { Product } from '@/types/product';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/context/CartContext';
-import { ShoppingCart, CreditCard } from 'lucide-react';
+import { ShoppingCart, CreditCard, IndianRupee } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 
 interface ProductCardProps {
   product: Product;
 }
+
+// Function to format price in Indian Rupees format
+const formatIndianPrice = (price: number) => {
+  // Convert to Indian format (e.g., 1,23,456)
+  const priceString = price.toString();
+  const lastThree = priceString.substring(priceString.length - 3);
+  const otherNumbers = priceString.substring(0, priceString.length - 3);
+  const formattedPrice = otherNumbers !== '' 
+    ? otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + ',' + lastThree 
+    : lastThree;
+  
+  return `₹${formattedPrice}`;
+};
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
@@ -63,12 +76,12 @@ export default function ProductCard({ product }: ProductCardProps) {
         
         <div className="mt-auto">
           <div className="flex items-baseline mb-4">
-            <span className="font-heading text-2xl font-bold text-primary-700">
-              ${product.price}
+            <span className="font-heading text-2xl font-bold text-primary-700 flex items-center">
+              <IndianRupee className="h-4 w-4 mr-1" /> {formatIndianPrice(product.price).substring(1)}
             </span>
             {product.oldPrice && (
               <span className="ml-2 text-sm text-gray-500 line-through">
-                ${product.oldPrice}
+                ₹{formatIndianPrice(product.oldPrice).substring(1)}
               </span>
             )}
           </div>

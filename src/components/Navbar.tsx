@@ -33,8 +33,11 @@ export default function Navbar() {
           <Link to="/brands" className="text-sm font-medium hover:text-primary-600 transition-colors">
             Brands
           </Link>
-          <Link to="/deals" className="text-sm font-medium hover:text-primary-600 transition-colors">
-            Deals
+          <Link to="/brand/apple" className="text-sm font-medium hover:text-primary-600 transition-colors">
+            Apple
+          </Link>
+          <Link to="/brand/samsung" className="text-sm font-medium hover:text-primary-600 transition-colors">
+            Samsung
           </Link>
         </nav>
 
@@ -103,13 +106,45 @@ export default function Navbar() {
             >
               Brands
             </Link>
-            <Link 
-              to="/deals" 
-              className="text-lg font-medium p-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Deals
-            </Link>
+            
+            <div className="border-t border-gray-200 pt-4">
+              <h3 className="text-gray-500 text-sm font-medium mb-3 px-2">Popular Brands</h3>
+              <Link 
+                to="/brand/apple" 
+                className="text-lg font-medium p-2 block"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Apple
+              </Link>
+              <Link 
+                to="/brand/samsung" 
+                className="text-lg font-medium p-2 block"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Samsung
+              </Link>
+              <Link 
+                to="/brand/google" 
+                className="text-lg font-medium p-2 block"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Google
+              </Link>
+              <Link 
+                to="/brand/oneplus" 
+                className="text-lg font-medium p-2 block"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                OnePlus
+              </Link>
+              <Link 
+                to="/brand/xiaomi" 
+                className="text-lg font-medium p-2 block"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Xiaomi
+              </Link>
+            </div>
             
             <div className="pt-4 mt-4 border-t border-gray-200">
               <Button onClick={() => setIsMenuOpen(false)} className="w-full bg-primary-700 hover:bg-primary-800">
