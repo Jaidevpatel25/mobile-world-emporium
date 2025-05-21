@@ -102,11 +102,11 @@ export const products: Product[] = [
     id: "motorola-edge-50-fusion",
     name: "Edge 50 Fusion",
     brand: "Motorola",
-    price: 24999,
-    image: "https://images.unsplash.com/photo-1550367083-9fa5411cb303?q=80&w=1974&auto=format&fit=crop",
+    price: 25000.00,
+    image: "https://motorolain.vtexassets.com/arquivos/ids/159186/2024_CUSCO-PLUS_FOREST-GREEN_PDP-HERO.png?v=638618115763230000",
     specs: {
-      ram: "8GB",
-      storage: "128GB",
+      ram: "12GB",
+      storage: "256GB",
       camera: "50MP + 13MP Dual Camera",
       display: "6.7-inch pOLED 144Hz",
       processor: "Snapdragon 7s Gen 2",
@@ -115,7 +115,7 @@ export const products: Product[] = [
     inStock: true,
     featured: true,
     description: "The Motorola Edge 50 Fusion features a stunning 6.7-inch pOLED display with 1B colors, powerful Snapdragon 7s Gen 2 processor, and a 50MP OIS camera system.",
-    colors: ["Marshmallow Blue", "Silicone Matte"]
+    colors: ["Marshmallow Blue", "Silicone Matte", "Dark Forest", "Hot Pink"]
   },
   {
     id: "iphone-15",
