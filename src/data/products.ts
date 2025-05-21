@@ -22,24 +22,6 @@ export const products: Product[] = [
     colors: ["Titanium Blue", "Natural Titanium", "White Titanium", "Black Titanium"]
   },
   {
-    id: "Motorola Edge 50 Fusion",
-    name: "Motorola Edge 50 Fusion",
-    brand: "Samsung",
-    price: 25,000,
-    image: "https://motorolain.vtexassets.com/arquivos/ids/159186/2024_CUSCO-PLUS_FOREST-GREEN_PDP-HERO.png?v=638618115763230000",
-    specs: {
-      ram: "12GB",
-      storage: "256GB",
-      camera: "48MP Double Sony Camera",
-      display: "16.72 cm"
-      battery: "5000mAh"
-    },
-    inStock: true,
-    featured: true,
-    description: "The Motorola Edge 50 Fusion Trending#1 Smart Android Mobile With 48 MP Sony Cemara.",
-    colors: ["Black Forest", "Hot Pink", "Navy Blue"]
-  },
-  {
     id: "samsung-galaxy-s23-ultra",
     name: "Galaxy S23 Ultra",
     brand: "Samsung",
