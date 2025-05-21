@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				heading: ['Poppins', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -25,8 +30,30 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					DEFAULT: '#1a365d',
+					foreground: '#ffffff',
+					100: '#e6edf7',
+					200: '#c3d5e9',
+					300: '#8faed3',
+					400: '#5c87bd',
+					500: '#3d6eae',
+					600: '#2a5495',
+					700: '#1a365d',
+					800: '#142b4a',
+					900: '#0e1f36',
+				},
+				accent: {
+					DEFAULT: '#ed8936',
+					foreground: '#ffffff',
+					100: '#fef1e8',
+					200: '#fcdec1',
+					300: '#f9bd89',
+					400: '#f59c51',
+					500: '#ed8936',
+					600: '#de721f',
+					700: '#b65d19',
+					800: '#8d4913',
+					900: '#64340e',
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -84,11 +111,22 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.3s ease-out'
 			}
 		}
 	},
