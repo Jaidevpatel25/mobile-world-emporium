@@ -139,7 +139,7 @@ export default function Index() {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="border-white hover:bg-white/10"
+                    className="border-white text-black hover:bg-white/10"
                     asChild
                   >
                     <Link to="/brands">Shop by Brand</Link>
