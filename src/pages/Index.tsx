@@ -17,7 +17,7 @@ const minPrice = Math.min(...products.map(p => p.price));
 export default function Index() {
   const featuredProducts = products.filter(product => product.featured);
   // Find the Motorola Edge 50 Fusion for new arrival section
-  const newArrivalProduct = products.find(product => product.id === "google-pixel-8");
+  const newArrivalProduct = products.find(product => product.id === "iphone-15-pro-max");
   
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
   const [searchQuery, setSearchQuery] = useState('');
