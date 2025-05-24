@@ -44,8 +44,8 @@ export const products: Product[] = [
     id: "google-pixel-8-pro",
     name: "Pixel 8 Pro",
     brand: "Google",
-    price: 106999,
-    image: "https://images.unsplash.com/photo-1699439098260-f797a2c41371?q=80&w=2071&auto=format&fit=crop",
+    price: 39999,
+    image: "https://www.designinfo.in/wp-content/uploads/2024/03/Google-Pixel-8-Pro-128GB-Porcelain-1.webp",
     specs: {
       ram: "12GB",
       storage: "256GB",
@@ -63,8 +63,8 @@ export const products: Product[] = [
     id: "oneplus-12",
     name: "OnePlus 12",
     brand: "OnePlus",
-    price: 64999,
-    image: "https://images.unsplash.com/photo-1676911809746-9f4316589126?q=80&w=2021&auto=format&fit=crop",
+    price: 56999,
+    image: "https://oasis.opstatics.com/content/dam/oasis/page/2023/cn/12/12-black.png",
     specs: {
       ram: "16GB",
       storage: "256GB",
@@ -82,8 +82,8 @@ export const products: Product[] = [
     id: "xiaomi-14-ultra",
     name: "Xiaomi 14 Ultra",
     brand: "Xiaomi",
-    price: 99999,
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?q=80&w=2027&auto=format&fit=crop",
+    price: 88849,
+    image: "https://m.media-amazon.com/images/I/81mDHujkYpL._AC_UF1000,1000_QL80_.jpg",
     specs: {
       ram: "16GB",
       storage: "512GB",
@@ -102,7 +102,7 @@ export const products: Product[] = [
     name: "Edge 50 Fusion",
     brand: "Motorola",
     price: 25000.00,
-    image: "https://motorolain.vtexassets.com/arquivos/ids/159186/2024_CUSCO-PLUS_FOREST-GREEN_PDP-HERO.png?v=638618115763230000",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuMZK0qNCKUW2Fqsg2vrSAxh9WPa14WePCLQ&s",
     specs: {
       ram: "12GB",
       storage: "256GB",
@@ -121,7 +121,7 @@ export const products: Product[] = [
     name: "iPhone 15",
     brand: "Apple",
     price: 79900,
-    image: "https://images.unsplash.com/photo-1696428262254-0cf1499cfb25?q=80&w=1964&auto=format&fit=crop",
+    image: "https://rukminim2.flixcart.com/image/850/1000/xif0q/mobile/h/d/9/-original-imagtc2qzgnnuhxh.jpeg?q=20&crop=false",
     specs: {
       ram: "6GB",
       storage: "128GB",
@@ -138,8 +138,8 @@ export const products: Product[] = [
     id: "samsung-galaxy-s23-plus",
     name: "Galaxy S23+",
     brand: "Samsung",
-    price: 94999,
-    image: "https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?q=80&w=2071&auto=format&fit=crop",
+    price: 98999,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSEronlJ0indMAWbzGMLd04t0ji_iIDPub1g&s",
     specs: {
       ram: "8GB",
       storage: "256GB",
@@ -156,8 +156,8 @@ export const products: Product[] = [
     id: "google-pixel-8",
     name: "Pixel 8",
     brand: "Google",
-    price: 75999,
-    image: "https://images.unsplash.com/photo-1701722969576-fd0c8d9dfa96?q=80&w=1935&auto=format&fit=crop",
+    price: 38999,
+    image: "https://www.designinfo.in/wp-content/uploads/2024/03/Google-Pixel-8-Pro-128GB-Porcelain-1.webp",
     specs: {
       ram: "8GB",
       storage: "128GB",
@@ -176,7 +176,7 @@ export const products: Product[] = [
     brand: "OnePlus",
     price: 56999,
     oldPrice: 61999,
-    image: "https://images.unsplash.com/photo-1679641051408-b963d15f4f5a?q=80&w=1935&auto=format&fit=crop",
+    image: "https://m.media-amazon.com/images/I/61amb0CfMGL.jpg",
     specs: {
       ram: "12GB",
       storage: "256GB",
@@ -193,8 +193,8 @@ export const products: Product[] = [
     id: "xiaomi-13t-pro",
     name: "Xiaomi 13T Pro",
     brand: "Xiaomi",
-    price: 49999,
-    image: "https://images.unsplash.com/photo-1550367083-9fa5411cb303?q=80&w=1974&auto=format&fit=crop",
+    price: 24599,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWApOwcLDMMEGEpkWQUZ9cP9xo5jx274stCg&s",
     specs: {
       ram: "12GB",
       storage: "256GB",
@@ -208,11 +208,11 @@ export const products: Product[] = [
     colors: ["Alpine Blue", "Meadow Green", "Black"]
   },
   {
-    id: "motorola-edge-50-fusion-256",
-    name: "Edge 50 Fusion",
+    id: "motorola-edge-60-fusion",
+    name: "Edge 60 Fusion",
     brand: "Motorola",
-    price: 27999,
-    image: "https://images.unsplash.com/photo-1550367083-9fa5411cb303?q=80&w=1974&auto=format&fit=crop",
+    price: 22099-27000,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9-2eDUwbkoE1D3Hp4dXt5VcKesQxbphXsiQ&s",
     specs: {
       ram: "12GB",
       storage: "256GB",
