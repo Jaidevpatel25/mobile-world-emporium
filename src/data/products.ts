@@ -29,6 +29,8 @@ export const products: Product[] = [
     price: 124999,
     oldPrice: 134999,
     image: "https://images.unsplash.com/photo-1678911820864-e2c567c655d7?q=80&w=2064&auto=format&fit=crop",
+    image1: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgTgfAHWIESvzP2o98KzTia7VS6AkEwKdDKg&s",
+    image2: "https://www.designinfo.in/wp-content/uploads/2023/10/Samsung-Galaxy-S23-Ultra-256GB-Unlocked-Cream-1.webp",
     specs: {
       ram: "12GB",
       storage: "512GB",
@@ -48,6 +50,8 @@ export const products: Product[] = [
     brand: "Google",
     price: 39999,
     image: "https://www.designinfo.in/wp-content/uploads/2024/03/Google-Pixel-8-Pro-128GB-Porcelain-1.webp",
+    image1: "https://www.designinfo.in/wp-content/uploads/2023/10/Google-Pixel-8-Pro-128GB-Unlocked-Bay-1.webp",
+    image2: "https://www.designinfo.in/wp-content/uploads/2023/10/Google-Pixel-8-Pro-Black-1.webp",
     specs: {
       ram: "12GB",
       storage: "256GB",
@@ -67,6 +71,8 @@ export const products: Product[] = [
     brand: "OnePlus",
     price: 56999,
     image: "https://oasis.opstatics.com/content/dam/oasis/page/2023/cn/12/12-black.png",
+    image1: "https://image01-in.oneplus.net/media/202407/04/9052428d8c69bd8bb884c7913af5fa73.png",
+    image2: "https://rukminim2.flixcart.com/image/850/1000/xif0q/mobile/s/r/r/12-5g-op12-5g-oneplus-original-imagxgt7uwerszh8.jpeg?q=90&crop=false",
     specs: {
       ram: "16GB",
       storage: "256GB",
@@ -86,6 +92,8 @@ export const products: Product[] = [
     brand: "Xiaomi",
     price: 88849,
     image: "https://m.media-amazon.com/images/I/81mDHujkYpL._AC_UF1000,1000_QL80_.jpg",
+    image1: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUj2P_lwg3ADnjnhmkt1-yW1UVJWqLNyJpPg&s",
+    image2: "https://www.cnet.com/a/img/resize/005920f02fb933dd741737d9fc28dfc28e3624b4/hub/2024/04/04/89d09a95-5483-4846-9495-0ff02091e2ec/xiaomi-14-ultra-promo-lanxon-cnet-review-18.jpg?auto=webp&width=1200",
     specs: {
       ram: "16GB",
       storage: "512GB",
@@ -105,6 +113,8 @@ export const products: Product[] = [
     brand: "Motorola",
     price: 25000.00,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuMZK0qNCKUW2Fqsg2vrSAxh9WPa14WePCLQ&s",
+    image1: "https://images-eu.ssl-images-amazon.com/images/I/71XZP2Hm+5L._AC_UL495_SR435,495_.jpg",
+    image2: "https://m.media-amazon.com/images/I/71m+dNHzoGL.jpg",
     specs: {
       ram: "12GB",
       storage: "256GB",
@@ -124,6 +134,8 @@ export const products: Product[] = [
     brand: "Apple",
     price: 79900,
     image: "https://rukminim2.flixcart.com/image/850/1000/xif0q/mobile/h/d/9/-original-imagtc2qzgnnuhxh.jpeg?q=20&crop=false",
+    image1: "https://m.media-amazon.com/images/I/71d7rfSl0wL._AC_UF1000,1000_QL80_.jpg",
+    image2: "https://www.imagineonline.store/cdn/shop/files/iPhone_15_Pink_PDP_Image_Position-1_alt__en-IN.jpg?v=1694605260&width=823",
     specs: {
       ram: "6GB",
       storage: "128GB",
@@ -142,6 +154,8 @@ export const products: Product[] = [
     brand: "Samsung",
     price: 98999,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSEronlJ0indMAWbzGMLd04t0ji_iIDPub1g&s",
+    image1: "https://m.media-amazon.com/images/I/61mSOsisDAL.jpg",
+    image2: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcP6uVZxXwddCQAXwDxRiCYOaujIOcz-UnnA&s",
     specs: {
       ram: "8GB",
       storage: "256GB",
@@ -160,6 +174,8 @@ export const products: Product[] = [
     brand: "Google",
     price: 38999,
     image: "https://www.designinfo.in/wp-content/uploads/2024/03/Google-Pixel-8-Pro-128GB-Porcelain-1.webp",
+    image1: "https://www.designinfo.in/wp-content/uploads/2023/10/Google-Pixel-8-Pro-128GB-Unlocked-Bay-1.webp",
+    image2: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9meFQ0JDKiOUluv5f85UY6wERSOQIRDLB3Q&s",
     specs: {
       ram: "8GB",
       storage: "128GB",
@@ -179,6 +195,8 @@ export const products: Product[] = [
     price: 56999,
     oldPrice: 61999,
     image: "https://m.media-amazon.com/images/I/61amb0CfMGL.jpg",
+    image1: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqSu4f9U3Jc37B3vAGdR9e4hJ931NcRSGFrA&s",
+    image2: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxRKQmgORbm-Dph3VLbHmQl9BzsNW-1lK0gw&s",
     specs: {
       ram: "12GB",
       storage: "256GB",
@@ -197,6 +215,8 @@ export const products: Product[] = [
     brand: "Xiaomi",
     price: 24599,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWApOwcLDMMEGEpkWQUZ9cP9xo5jx274stCg&s",
+    image1: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB80KLaO3UOGAfuoz_2NRKztq7c3Ip-Equww&s",
+    image2: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaeazSgQPZXjwk34NvHgydgwf_aVqYdC9ByQ&s",
     specs: {
       ram: "12GB",
       storage: "256GB",
@@ -216,6 +236,8 @@ export const products: Product[] = [
     price: 22099,
     oldPrice: 26000,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9-2eDUwbkoE1D3Hp4dXt5VcKesQxbphXsiQ&s",
+    image1: "https://motorolain.vtexassets.com/arquivos/ids/159339-800-auto?width=800&height=auto&aspect=true",
+    image2: "https://m.media-amazon.com/images/I/81ZkMDjcjFL._AC_UF1000,1000_QL80_.jpg",
     specs: {
       ram: "12GB",
       storage: "256GB",
