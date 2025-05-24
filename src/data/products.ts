@@ -211,7 +211,8 @@ export const products: Product[] = [
     id: "motorola-edge-60-fusion",
     name: "Edge 60 Fusion",
     brand: "Motorola",
-    price: 22099-27000,
+    price: 22099,
+    oldPrice: 26000,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9-2eDUwbkoE1D3Hp4dXt5VcKesQxbphXsiQ&s",
     specs: {
       ram: "12GB",
