@@ -107,13 +107,13 @@ export const products: Product[] = [
       ram: "12GB",
       storage: "256GB",
       camera: "50MP + 13MP Dual Camera",
-      display: "6.7-inch pOLED 144Hz",
+      display: "6.7-inch poled 144Hz",
       processor: "Snapdragon 7s Gen 2",
       battery: "5000mAh"
     },
     inStock: true,
     featured: true,
-    description: "The Motorola Edge 50 Fusion features a stunning 6.7-inch pOLED display with 1B colors, powerful Snapdragon 7s Gen 2 processor, and a 50MP OIS camera system.",
+    description: "The Motorola Edge 50 Fusion features a stunning 6.7-inch poled display with 1B colors, powerful Snapdragon 7s Gen 2 processor, and a 50MP OIS camera system.",
     colors: ["Marshmallow Blue", "Silicone Matte", "Dark Forest", "Hot Pink"]
   },
   {
