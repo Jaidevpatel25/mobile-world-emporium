@@ -12,6 +12,7 @@ import BrandPage from "./pages/BrandPage";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import OrderConfirmation from "./pages/OrderConfirmation";
+import ProductDetailPage from "./pages/ProductDetailPage";
 import AboutPage from "./pages/AboutPage";
 import CareersPage from "./pages/CareersPage";
 import BlogPage from "./pages/BlogPage";
@@ -36,6 +37,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/phones" element={<PhonesPage />} />
+            <Route path="/phones/:modelName" element={<ProductDetailPage />} />
             <Route path="/brands" element={<BrandsPage />} />
             <Route path="/brand/:brandId" element={<BrandPage />} />
             <Route path="/cart" element={<CartPage />} />

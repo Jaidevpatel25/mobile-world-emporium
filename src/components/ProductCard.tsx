@@ -24,9 +24,18 @@ const formatIndianPrice = (price: number) => {
   return `₹${formattedPrice}`;
 };
 
+// Generate product slug from name
+const generateSlug = (name: string, brand: string) => {
+  return `${brand.toLowerCase()}-${name.toLowerCase()}`
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+};
+
 export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
   const { toast } = useToast();
+  
+  const productSlug = generateSlug(product.name, product.brand);
   
   const handleAddToCart = () => {
     addToCart(product);
@@ -39,7 +48,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div className="product-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 flex flex-col h-full">
-      <Link to={`/product/${product.id}`} className="block overflow-hidden">
+      <Link to={`/phones/${productSlug}`} className="block overflow-hidden">
         <div className="aspect-square overflow-hidden bg-gray-100">
           <img 
             src={product.image} 
@@ -52,7 +61,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className="p-4 flex flex-col flex-grow">
         <div className="mb-2">
           <p className="text-sm text-gray-500 font-medium">{product.brand}</p>
-          <Link to={`/product/${product.id}`}>
+          <Link to={`/phones/${productSlug}`}>
             <h3 className="font-heading text-lg font-semibold mb-1 hover:text-primary-600 transition-colors">
               {product.name}
             </h3>
@@ -96,7 +105,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               <ShoppingCart className="h-4 w-4 mr-1" />
               Add to Cart
             </Button>
-            <Link to={`/checkout?productId=${product.id}`} className="w-full">
+            <Link to={`/phones/${productSlug}`} className="w-full">
               <Button 
                 variant="default" 
                 size="sm" 
