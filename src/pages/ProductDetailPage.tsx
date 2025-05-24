@@ -81,8 +81,8 @@ export default function ProductDetailPage() {
   // Mock image gallery (in a real app, you'd have multiple images)
   const imageGallery = [
     product.image,
-    product.image, // You'd have different angles here
-    product.image,
+    product.image1, // You'd have different angles here
+    product.image2,
   ];
 
   const handleAddToCart = () => {
