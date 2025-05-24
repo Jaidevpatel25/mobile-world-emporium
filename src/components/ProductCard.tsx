@@ -21,7 +21,7 @@ const formatIndianPrice = (price: number) => {
     ? otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + ',' + lastThree 
     : lastThree;
   
-  return `â‚¹${formattedPrice}`;
+  return `₹${formattedPrice}`;
 };
 
 export default function ProductCard({ product }: ProductCardProps) {
@@ -81,7 +81,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             </span>
             {product.oldPrice && (
               <span className="ml-2 text-sm text-gray-500 line-through">
-                â‚¹{formatIndianPrice(product.oldPrice).substring(1)}
+                ₹{formatIndianPrice(product.oldPrice).substring(1)}
               </span>
             )}
           </div>
@@ -112,4 +112,3 @@ export default function ProductCard({ product }: ProductCardProps) {
     </div>
   );
 }
-
