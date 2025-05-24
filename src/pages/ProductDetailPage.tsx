@@ -4,7 +4,15 @@ import { useParams, Link } from 'react-router-dom';
 import { products } from '@/data/products';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Star, ShoppingCart, Heart, Share2, Truck, Shield, RotateCcw } from 'lucide-react';
+import { 
+  Breadcrumb, 
+  BreadcrumbList, 
+  BreadcrumbItem, 
+  BreadcrumbLink, 
+  BreadcrumbSeparator, 
+  BreadcrumbPage 
+} from '@/components/ui/breadcrumb';
+import { Star, ShoppingCart, Heart, Share2, Truck, Shield, RotateCcw, ChevronDown, ChevronUp } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { useToast } from '@/hooks/use-toast';
 import Navbar from '@/components/Navbar';
@@ -17,6 +25,12 @@ export default function ProductDetailPage() {
   const { addToCart } = useCart();
   const { toast } = useToast();
   const [selectedColor, setSelectedColor] = useState(0);
+  const [expandedSections, setExpandedSections] = useState({
+    display: false,
+    performance: false,
+    camera: false,
+    battery: false
+  });
   
   const product = products.find(p => p.id === productId);
   
@@ -28,8 +42,8 @@ export default function ProductDetailPage() {
   const emiAmount = Math.round(product.price / 10);
   
   // Mock rating data
-  const rating = 4.6;
-  const reviewCount = 320;
+  const rating = 4.5;
+  const reviewCount = 200;
   
   // Get related products from same brand
   const relatedProducts = products
@@ -46,11 +60,17 @@ export default function ProductDetailPage() {
 
   const handleBuyNow = () => {
     addToCart(product);
-    // Navigate to checkout would go here
     toast({
       title: "Redirecting to checkout",
       description: "Taking you to secure checkout...",
     });
+  };
+
+  const toggleSection = (section: keyof typeof expandedSections) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
   };
 
   return (
@@ -58,24 +78,32 @@ export default function ProductDetailPage() {
       <Navbar />
       
       <main className="flex-grow">
-        {/* Breadcrumb */}
+        {/* Enhanced Breadcrumb */}
         <div className="bg-gray-50 py-4">
           <div className="container mx-auto px-4">
-            <nav className="text-sm text-gray-600">
-              <Link to="/" className="hover:text-primary-600">Home</Link>
-              <span className="mx-2">/</span>
-              <Link to="/phones" className="hover:text-primary-600">Phones</Link>
-              <span className="mx-2">/</span>
-              <Link to={`/brand/${product.brand.toLowerCase()}`} className="hover:text-primary-600">{product.brand}</Link>
-              <span className="mx-2">/</span>
-              <span className="text-gray-900">{product.name}</span>
-            </nav>
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/">Home</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to={`/brand/${product.brand.toLowerCase()}`}>{product.brand}</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbPage>{product.name}</BreadcrumbPage>
+              </BreadcrumbList>
+            </Breadcrumb>
           </div>
         </div>
 
         <div className="container mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            {/* Product Images */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            {/* Enhanced Image Gallery */}
             <div className="space-y-4">
               <div className="bg-white rounded-lg shadow-sm p-6">
                 <img 
@@ -83,6 +111,9 @@ export default function ProductDetailPage() {
                   alt={product.name}
                   className="w-full h-96 object-contain rounded-lg"
                 />
+                <div className="flex justify-center mt-4">
+                  <span className="text-sm text-gray-500">📱 Swipe for more views</span>
+                </div>
               </div>
               
               {/* Color Options */}
@@ -108,7 +139,7 @@ export default function ProductDetailPage() {
               )}
             </div>
 
-            {/* Product Info */}
+            {/* Enhanced Product Info */}
             <div className="space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-2">
@@ -122,7 +153,9 @@ export default function ProductDetailPage() {
                   )}
                 </div>
                 
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h1>
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                  {product.name} ({product.colors?.[selectedColor] || 'Default'}, {product.specs.storage})
+                </h1>
                 
                 <div className="flex items-center gap-2 mb-4">
                   <div className="flex items-center">
@@ -138,105 +171,197 @@ export default function ProductDetailPage() {
                     ))}
                   </div>
                   <span className="text-sm text-gray-600">
-                    {rating} ({reviewCount} reviews)
+                    {rating}/5 ({reviewCount}+ reviews)
                   </span>
                 </div>
               </div>
 
-              {/* Pricing */}
+              {/* Enhanced Pricing */}
               <div className="space-y-2">
                 <div className="flex items-baseline gap-4">
-                  <span className="text-3xl font-bold text-gray-900">
+                  <span className="text-4xl font-bold text-gray-900">
                     ₹{product.price.toLocaleString('en-IN')}
                   </span>
                   {product.oldPrice && (
-                    <span className="text-lg text-gray-500 line-through">
+                    <span className="text-xl text-gray-500 line-through">
                       ₹{product.oldPrice.toLocaleString('en-IN')}
                     </span>
                   )}
                 </div>
                 <p className="text-sm text-gray-600">
-                  EMI from ₹{emiAmount.toLocaleString('en-IN')}/month
+                  EMI from ₹{emiAmount.toLocaleString('en-IN')}/month | No cost EMI available
                 </p>
               </div>
+            </div>
+          </div>
 
-              {/* Key Features */}
-              <Card>
-                <CardContent className="p-4">
-                  <h3 className="font-semibold mb-3">📱 Key Specifications</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Display:</span>
-                      <span className="font-medium">{product.specs.display || 'N/A'}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Processor:</span>
-                      <span className="font-medium">{product.specs.processor || 'N/A'}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">RAM:</span>
-                      <span className="font-medium">{product.specs.ram}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Storage:</span>
-                      <span className="font-medium">{product.specs.storage}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Camera:</span>
-                      <span className="font-medium">{product.specs.camera}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Battery:</span>
-                      <span className="font-medium">{product.specs.battery || 'N/A'}</span>
+          {/* Expandable Key Specifications */}
+          <div className="space-y-4 mb-8">
+            <h2 className="text-2xl font-semibold mb-4">📱 Key Specifications</h2>
+            
+            {/* Display Section */}
+            <Card>
+              <CardContent className="p-0">
+                <button
+                  onClick={() => toggleSection('display')}
+                  className="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-lg">📺</span>
+                    <div className="text-left">
+                      <h3 className="font-semibold">Display</h3>
+                      <p className="text-sm text-gray-600">{product.specs.display || '6.7" pOLED, 144Hz'}</p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                  {expandedSections.display ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                </button>
+                {expandedSections.display && (
+                  <div className="px-4 pb-4 border-t bg-gray-50">
+                    <div className="grid grid-cols-2 gap-4 mt-3 text-sm">
+                      <div><span className="text-gray-600">Size:</span> <span className="font-medium">6.7 inches</span></div>
+                      <div><span className="text-gray-600">Type:</span> <span className="font-medium">pOLED</span></div>
+                      <div><span className="text-gray-600">Refresh Rate:</span> <span className="font-medium">144Hz</span></div>
+                      <div><span className="text-gray-600">Resolution:</span> <span className="font-medium">FHD+</span></div>
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
 
-              {/* Service Highlights */}
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div className="flex flex-col items-center space-y-2">
-                  <Truck className="h-6 w-6 text-primary-600" />
-                  <span className="text-xs text-gray-600">Free Delivery</span>
-                </div>
-                <div className="flex flex-col items-center space-y-2">
-                  <Shield className="h-6 w-6 text-primary-600" />
-                  <span className="text-xs text-gray-600">1 Year Warranty</span>
-                </div>
-                <div className="flex flex-col items-center space-y-2">
-                  <RotateCcw className="h-6 w-6 text-primary-600" />
-                  <span className="text-xs text-gray-600">7 Day Return</span>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button 
-                  variant="outline" 
-                  className="flex-1"
-                  onClick={handleAddToCart}
+            {/* Performance Section */}
+            <Card>
+              <CardContent className="p-0">
+                <button
+                  onClick={() => toggleSection('performance')}
+                  className="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
                 >
-                  <ShoppingCart className="h-4 w-4 mr-2" />
-                  Add to Cart
-                </Button>
-                <Button 
-                  className="flex-1 bg-primary-600 hover:bg-primary-700"
-                  onClick={handleBuyNow}
-                >
-                  Buy Now
-                </Button>
-              </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-lg">⚡</span>
+                    <div className="text-left">
+                      <h3 className="font-semibold">Performance</h3>
+                      <p className="text-sm text-gray-600">{product.specs.processor || 'Snapdragon 7s Gen 2'}, {product.specs.ram}</p>
+                    </div>
+                  </div>
+                  {expandedSections.performance ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                </button>
+                {expandedSections.performance && (
+                  <div className="px-4 pb-4 border-t bg-gray-50">
+                    <div className="grid grid-cols-2 gap-4 mt-3 text-sm">
+                      <div><span className="text-gray-600">Chipset:</span> <span className="font-medium">Snapdragon 7s Gen 2</span></div>
+                      <div><span className="text-gray-600">RAM:</span> <span className="font-medium">{product.specs.ram}</span></div>
+                      <div><span className="text-gray-600">Storage:</span> <span className="font-medium">{product.specs.storage}</span></div>
+                      <div><span className="text-gray-600">OS:</span> <span className="font-medium">Android 14</span></div>
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
 
-              <div className="flex gap-3">
-                <Button variant="ghost" size="sm">
-                  <Heart className="h-4 w-4 mr-2" />
-                  Wishlist
-                </Button>
-                <Button variant="ghost" size="sm">
-                  <Share2 className="h-4 w-4 mr-2" />
-                  Share
-                </Button>
-              </div>
+            {/* Camera Section */}
+            <Card>
+              <CardContent className="p-0">
+                <button
+                  onClick={() => toggleSection('camera')}
+                  className="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-lg">📸</span>
+                    <div className="text-left">
+                      <h3 className="font-semibold">Camera</h3>
+                      <p className="text-sm text-gray-600">{product.specs.camera} | 32MP front</p>
+                    </div>
+                  </div>
+                  {expandedSections.camera ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                </button>
+                {expandedSections.camera && (
+                  <div className="px-4 pb-4 border-t bg-gray-50">
+                    <div className="grid grid-cols-2 gap-4 mt-3 text-sm">
+                      <div><span className="text-gray-600">Main:</span> <span className="font-medium">50MP</span></div>
+                      <div><span className="text-gray-600">Ultra-wide:</span> <span className="font-medium">13MP</span></div>
+                      <div><span className="text-gray-600">Front:</span> <span className="font-medium">32MP</span></div>
+                      <div><span className="text-gray-600">Video:</span> <span className="font-medium">4K@30fps</span></div>
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
+            {/* Battery Section */}
+            <Card>
+              <CardContent className="p-0">
+                <button
+                  onClick={() => toggleSection('battery')}
+                  className="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-lg">🔋</span>
+                    <div className="text-left">
+                      <h3 className="font-semibold">Battery</h3>
+                      <p className="text-sm text-gray-600">{product.specs.battery || '5000mAh'}, 68W charging</p>
+                    </div>
+                  </div>
+                  {expandedSections.battery ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                </button>
+                {expandedSections.battery && (
+                  <div className="px-4 pb-4 border-t bg-gray-50">
+                    <div className="grid grid-cols-2 gap-4 mt-3 text-sm">
+                      <div><span className="text-gray-600">Capacity:</span> <span className="font-medium">5000mAh</span></div>
+                      <div><span className="text-gray-600">Charging:</span> <span className="font-medium">68W TurboPower</span></div>
+                      <div><span className="text-gray-600">Wireless:</span> <span className="font-medium">15W</span></div>
+                      <div><span className="text-gray-600">Usage:</span> <span className="font-medium">All-day battery</span></div>
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Service Highlights */}
+          <div className="grid grid-cols-3 gap-4 text-center mb-8">
+            <div className="flex flex-col items-center space-y-2">
+              <Truck className="h-6 w-6 text-primary-600" />
+              <span className="text-xs text-gray-600">Free Delivery</span>
+            </div>
+            <div className="flex flex-col items-center space-y-2">
+              <Shield className="h-6 w-6 text-primary-600" />
+              <span className="text-xs text-gray-600">1 Year Warranty</span>
+            </div>
+            <div className="flex flex-col items-center space-y-2">
+              <RotateCcw className="h-6 w-6 text-primary-600" />
+              <span className="text-xs text-gray-600">7 Day Return</span>
+            </div>
+          </div>
+
+          {/* Action Buttons - Moved to Bottom */}
+          <div className="bg-white border rounded-lg p-6 mb-8">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button 
+                variant="outline" 
+                className="flex-1 h-12 text-lg"
+                onClick={handleAddToCart}
+                disabled={!product.inStock}
+              >
+                <ShoppingCart className="h-5 w-5 mr-2" />
+                {product.inStock ? 'Add to Cart' : 'Out of Stock'}
+              </Button>
+              <Button 
+                className="flex-1 h-12 text-lg bg-primary-600 hover:bg-primary-700 font-bold"
+                onClick={handleBuyNow}
+                disabled={!product.inStock}
+              >
+                🚀 Buy Now
+              </Button>
+            </div>
+
+            <div className="flex justify-center gap-6 mt-4">
+              <Button variant="ghost" size="sm">
+                <Heart className="h-4 w-4 mr-2" />
+                Wishlist
+              </Button>
+              <Button variant="ghost" size="sm">
+                <Share2 className="h-4 w-4 mr-2" />
+                Share
+              </Button>
             </div>
           </div>
 
@@ -264,22 +389,24 @@ export default function ProductDetailPage() {
         </div>
       </main>
 
-      {/* Fixed Footer Bar for Mobile */}
+      {/* Enhanced Fixed Footer Bar for Mobile */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg p-4 z-50">
         <div className="flex gap-3">
           <Button 
             variant="outline" 
-            className="flex-1"
+            className="flex-1 h-12"
             onClick={handleAddToCart}
+            disabled={!product.inStock}
           >
             <ShoppingCart className="h-4 w-4 mr-2" />
             Add to Cart
           </Button>
           <Button 
-            className="flex-1 bg-primary-600 hover:bg-primary-700"
+            className="flex-1 h-12 bg-primary-600 hover:bg-primary-700 font-bold"
             onClick={handleBuyNow}
+            disabled={!product.inStock}
           >
-            Buy Now
+            🚀 Buy Now
           </Button>
         </div>
       </div>
