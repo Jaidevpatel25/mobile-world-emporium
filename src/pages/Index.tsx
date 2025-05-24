@@ -196,7 +196,7 @@ export default function Index() {
                       </div>
                     </div>
                     <p className="text-2xl font-bold text-primary-700">
-                      ₹{(newArrivalProduct.price / 100).toLocaleString('en-IN')}
+                      ₹{(newArrivalProduct.price).toLocaleString('en-IN')}
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-3">
