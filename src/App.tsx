@@ -9,7 +9,6 @@ import Index from "./pages/Index";
 import PhonesPage from "./pages/PhonesPage";
 import BrandsPage from "./pages/BrandsPage";
 import BrandPage from "./pages/BrandPage";
-import ProductDetailPage from "./pages/ProductDetailPage";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import OrderConfirmation from "./pages/OrderConfirmation";
@@ -67,3 +66,4 @@ const App = () => (
 );
 
 export default App;
+
