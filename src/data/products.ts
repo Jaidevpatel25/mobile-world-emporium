@@ -7,6 +7,8 @@ export const products: Product[] = [
     brand: "Apple",
     price: 159900,
     image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=2070&auto=format&fit=crop",
+    image1: "https://m.media-amazon.com/images/I/81dT7CUY6GL._AC_UF1000,1000_QL80_.jpg",
+    image2: "https://images.macrumors.com/t/SuHt0iQuSjaO-ExOZzJieONGf_I=/2500x/article-new/2023/09/iPhone-15-Pro-Lineup-Feature.jpg",
     specs: {
       ram: "8GB",
       storage: "256GB",
